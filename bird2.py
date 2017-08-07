@@ -1,7 +1,18 @@
 import turtle
 import time
+
+#turtle.tracer(1,0)
+
 turtle.hideturtle()
 turtle.register_shape("newnew_bird.gif")
+turtle.register_shape("poof.gif")
+
+##cloud = turtle.clone()
+##cloud.penup()
+##cloud.shape("poof.gif")
+##cloud.goto(1000, 100)
+##cloud.showturtle()
+##cloud.goto(-1000, 100)
 
 birdy = turtle.clone()
 birdy.shape("newnew_bird.gif")
@@ -39,7 +50,6 @@ def up():
     
 turtle.onkeypress(up, UP_ARROW)
 turtle.listen()
-
 
 SIZE_X=1200
 SIZE_Y=900
