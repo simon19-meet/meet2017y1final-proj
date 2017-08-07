@@ -14,7 +14,7 @@ if birdy.pos() in food_pos:
     food_pos.pop(food_ind)
     score+=1
     scorePen = turtle.clone()
-    scorePen.color("pink")
+    scorePen.color("light blue")
     scorePen.shape("square")
     scorePen.hideturtle()
     scorePen.penup()
@@ -25,7 +25,7 @@ if birdy.pos() in food_pos:
     scorePen.goto(125,175)
     scorePen.color("black")
     scorePen.write("Score: " + str(score), font = ("Ariel", 20, "normal"))
-    print("you have eaten the food")
+    print("you have eaten the food and scored one point!!!")
     scorePen.color("white")
     scorePen.circle(30)
     make_food()
