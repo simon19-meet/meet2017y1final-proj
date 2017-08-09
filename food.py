@@ -1,0 +1,13 @@
+import turtle
+turtle.register_shape('chocolate.gif')
+turtle.register_shape('fries.gif')
+turtle.register_shape('ham.gif')
+turtle.register_shape('pizzzzza.gif')
+chocolate=turtle.clone()
+chocolate.shape('chocolate.gif')
+fries=turtle.clone()
+fries.shape('fries.gif')
+ham=turtle.clone()
+ham.shape('ham.gif')
+pizzzzza=turtle.clone()
+pizzzzza.shape('pizzzzza.gif')
