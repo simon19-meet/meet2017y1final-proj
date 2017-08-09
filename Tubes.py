@@ -15,12 +15,16 @@ def move_tubes():
 ##turtle.rt(90)
 ##turtle.fd(100)
 ##turtle.stamp()
-turtle.onkeypress(move_tubes,LEFT_D)
-turtle.listen()
-    #turtle.ontimer(move_tubes,100)
+    turtle.setheading(90)
+    turtle.heading()
+    
+#turtle.onkeypress(move_tubes,)
+#turtle.listen()
+    turtle.ontimer(move_tubes,100)
 move_tubes()
 
 
 ##tube1=turtle.clone()
 ##turtle.register_shape("tube1.gif")
 ##tube1.shape("tube1.gif")
+
