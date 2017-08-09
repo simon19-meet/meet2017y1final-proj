@@ -1,30 +1,44 @@
 import turtle
 import time
 
-#turtle.tracer(1,0)
+timing = 0
 
 turtle.hideturtle()
-turtle.register_shape("newnew_bird.gif")
+turtle.register_shape("newnewnew_bird.gif")
 turtle.register_shape("poof.gif")
 
-##cloud = turtle.clone()
-##cloud.penup()
-##cloud.shape("poof.gif")
-##cloud.goto(1000, 100)
-##cloud.showturtle()
-##cloud.goto(-1000, 100)
+writer = turtle.clone()
+writer.hideturtle()
+writer.penup()
+writer.goto(200, 250)
+writer.write("This way to Kenya -->", font=("Arial", 24, "normal"))
+writer.goto(200, 210)
+writer.write("get there to give the", font=("Arial", 24, "normal"))
+writer.goto(200, 170)
+writer.write("children food!", font=("Arial", 24, "normal"))
+
 
 birdy = turtle.clone()
-birdy.shape("newnew_bird.gif")
+birdy.shape("newnewnew_bird.gif")
 birdy.penup()
 birdy.showturtle()
 
+score = turtle.clone()
+score.penup()
+score.hideturtle()
+score.goto(-500, 250)
+
 UP_ARROW = "Up"
+LEFT_ARROW = "Left"
 
 draw = turtle.clone()
 draw.hideturtle()
+def times():
+    global time
+    timing += 1
 
 def grav():
+    global timing
     my_pos = birdy.pos()
     x_pos = my_pos[0]
     y_pos = my_pos[1]
@@ -38,6 +52,16 @@ def grav():
         draw.write("GAME OVER!", font=("Arial", 30, "normal"),align="center")
         time.sleep(2)
         quit()
+    timing += 1
+    score.clear()
+    score.write("Time to reach Kenya: " + str(300 - timing), font=("Arial", 24, "normal"))
+    if timing == 300:
+        draw.write("You won!", font=("Ariel", 30, "normal"),align="center")
+        time.sleep(3)
+        quit()
+def red():
+    turtle.bgcolor("red")
+turtle.onkeypress(red, LEFT_ARROW)
 
 grav()
 
