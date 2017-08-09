@@ -12,6 +12,7 @@ square_size = 20
 start_y_pos = 100
 TIME_STEP = 100
 tube_list = []
+tube_pos = []
 counter = 0
 counter2 = 0
 
@@ -37,6 +38,8 @@ def create_tube():
     tube2.goto(size_x/2,tube2_y)
     tube_list.append(tube)
     tube_list.append(tube2)
+    tube_pos.append(tube.pos())
+    tube_pos.append(tube2.pos())
 ##    turtle.ontimer(create_tube, 1000)
 
 def move_tubes():
@@ -51,7 +54,7 @@ def move_tubes():
         tube.goto(x_pos - square_size,y_pos)
 
     counter += 1
-    if counter%10 == 0:
+    if counter%20 == 0:
         create_tube()
 ##    create_tube()
 
@@ -65,7 +68,7 @@ create_tube()
 
 pygame.mixer.init()
 
-pygame.mixer.music.load("ibeli.mp3")
+pygame.mixer.music.load("ibelive.mp3")
 
 pygame.mixer.music.play(-1)
 
@@ -106,25 +109,31 @@ def times():
     global time
     timing += 1
 
+def distance(pos1,pos2):
+    x1,y1 = pos1
+    x2,y2 = pos2
+    d = ((x1-x2)**2+(y1-y2)**2)**(1/2)
+    return d
+
 def grav():
     global timing
     my_pos = birdy.pos()
     x_pos = my_pos[0]
     y_pos = my_pos[1]
     birdy.goto(x_pos, (y_pos - 10))
-    if birdy.pos()[1] > 410:
+    if birdy.pos()[1] > 360:
         draw.write("GAME OVER! :(", font=("Arial", 30, "normal"),align="center")
         pygame.mixer.init()
         pygame.mixer.music.load("hello_darkness.mp3")
         pygame.mixer.music.play()
-        time.sleep(17)
+        time.sleep(10)
         quit()
-    if birdy.pos()[1] < -410:
+    if birdy.pos()[1] < -360:
         draw.write("GAME OVER! :(", font=("Arial", 30, "normal"),align="center")
         pygame.mixer.init()
         pygame.mixer.music.load("hello_darkness.mp3")
         pygame.mixer.music.play()
-        time.sleep(17)
+        time.sleep(10)
         quit()
     timing += 1
     score.clear()
@@ -132,7 +141,18 @@ def grav():
     if timing == 10000:
         draw.write("You won!", font=("Ariel", 30, "normal"),align="center")
         time.sleep(3)
-        quit()
+##    if birdy.pos() in tube_pos:
+##        quit()
+    for tube in tube_list:
+        d = distance(tube.pos(),birdy.pos())
+        print(d)
+        if d < 20:
+            draw.write("GAME OVER! :(", font=("Arial", 30, "normal"),align="center")
+            pygame.mixer.init()
+            pygame.mixer.music.load("hello_darkness.mp3")
+            pygame.mixer.music.play()
+            time.sleep(10)
+            quit()
     move_tubes()
     turtle.ontimer(grav, 50)
     
@@ -153,8 +173,6 @@ def up():
 turtle.onkeypress(up, UP_ARROW)
 turtle.listen()
 
-if birdy.pos() in tube_list:
-    quit()
 
 
 
