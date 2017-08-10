@@ -40,6 +40,7 @@ def create_tube():
         tube1_y = random.randint(0,size_y/2)
         tube2_y = random.randint(0,size_y/2)
     
+    ########################### NEW CODE ######################################
     #tube1 is the upper tube, tube2 is the lower tube
     if tube2_y > tube1_y:
         temp = tube1_y
@@ -60,9 +61,11 @@ def create_tube():
     
     tube_pos.append(tube.pos())
     tube_pos.append(tube2.pos())
+    ##############################################################################
 ##    turtle.ontimer(create_tube, 1000)
 
 def move_tubes():
+    ############## ALL OF MOVE_TUBES IS NEW ##################################
     global counter, tube_list, tube_pos_top, tube_pos_bottom
 
     for i in range(len(tube_list)):
@@ -235,7 +238,7 @@ def grav():
                 time.sleep(2)
                 quit()
 
-
+    #########################################
     move_tubes()
     turtle.ontimer(grav, 50)
     
