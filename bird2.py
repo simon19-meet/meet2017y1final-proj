@@ -15,7 +15,7 @@ tube_list = []
 tube_pos = []
 counter = 0
 counter2 = 0
-
+food_list=['chocolate.gif','fries.gif','ham.gif','pizzzzza.gif','icee.gif']
 SIZE_X=1200
 SIZE_Y=900
 turtle.setup(SIZE_X,SIZE_Y)
@@ -43,7 +43,7 @@ def create_tube():
 ##    turtle.ontimer(create_tube, 1000)
 
 def move_tubes():
-    global counter,counter2, tube_list
+    global counter, tube_list
     for tube in tube_list:
         my_pos = tube.pos()
         x_pos = my_pos[0]
@@ -64,7 +64,41 @@ def move_tubes():
 create_tube()
 ##move_tubes()
 
+def create_food():
+    tube = turtle.clone()
+    tube.penup()
+    tube.shape('square')
+    tube2=turtle.clone()
+    tube2.penup()
+    tube2.shape('square')
+    
+    
+##    turtle.register_shape('chocolate.gif')
+##    turtle.register_shape('fries.gif')
+##    turtle.register_shape('ham.gif')
+##    turtle.register_shape('pizzzzza.gif')
+##    turtle.register_shape('icee.gif')
+##    chocolate=turtle.clone()
+##    chocolate.shape('chocolate.gif')
+##    fries=turtle.clone()
+##    fries.shape('fries.gif')
+##    ham=turtle.clone()
+##    ham.shape('ham.gif')
+##    pizzzzza=turtle.clone()
+##    pizzzzza.shape('pizzzzza.gif')
+##    icee=turtle.clone()
+##    icee.shape('icee.gif')
 
+    
+create_food()
+##def move_food():
+##    global counter2, tube_list
+##    for chocolate in food_list:
+##        my_pos_2 = chocolate.pos()
+##        x_pos = my_pos_2[0]
+##        y_pos = my_pos_2[1]
+##        
+##move_food()
 
 pygame.mixer.init()
 
