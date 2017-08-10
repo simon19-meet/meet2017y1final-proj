@@ -3,7 +3,7 @@ import time
 import pygame
 import random
 
-turtle.tracer(2,0)
+turtle.tracer(1,0)
 
 size_x = 800
 size_y = 500
@@ -97,7 +97,7 @@ def move_tubes():
             pass
 
     counter += 1
-    if counter%20 == 0:
+    if counter%30 == 0:
         create_tube()
 
 create_tube()
