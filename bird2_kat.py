@@ -86,6 +86,10 @@ def move_tubes():
                 this_bottom_tube.goto(this_bottom_tube.pos()[0] - square_size,this_bottom_tube.pos()[1])
                 tube_pos_bottom[i] = this_bottom_tube.pos()
 
+                food_clone = tube_list[i][2]
+                food_clone_pos = food_clone.pos()
+                food_clone.goto(food_clone.pos()[0] - square_size, food_clone.pos()[1])
+
 
         except IndexError:
             pass
